@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyFlow – Organizador de Estudos Inteligente</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header slide-up">
+      <div class="container header__content">
+        <div>
+          <p class="badge">StudyFlow</p>
+          <h1>Organizador de Estudos Inteligente</h1>
+          <p class="subtitle">
+            Organize tarefas, acompanhe prazos e descubra automaticamente o que priorizar.
+          </p>
+        </div>
+        <button id="themeToggle" class="btn btn--ghost" aria-label="Alternar tema escuro">
+          🌙 Tema escuro
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel slide-up">
+        <h2>Adicionar tarefa</h2>
+        <form id="taskForm" class="form">
+          <div class="form__grid">
+            <label>
+              Nome da tarefa
+              <input type="text" id="taskName" placeholder="Ex.: Resumo de Matemática" />
+            </label>
+            <label>
+              Matéria
+              <input type="text" id="taskSubject" placeholder="Ex.: Matemática" />
+            </label>
+            <label>
+              Data de entrega
+              <input type="date" id="taskDueDate" />
+            </label>
+            <label>
+              Prioridade
+              <select id="taskPriority">
+                <option value="Baixa">Baixa</option>
+                <option value="Média" selected>Média</option>
+                <option value="Alta">Alta</option>
+              </select>
+            </label>
+          </div>
+
+          <p id="formError" class="form__error" role="alert" aria-live="polite"></p>
+
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">Adicionar tarefa</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="stats-grid slide-up" aria-label="Indicadores de progresso">
+        <article class="stat-card">
+          <span>Total de tarefas</span>
+          <strong id="totalTasks">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>Concluídas</span>
+          <strong id="completedTasks">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>Meta semanal</span>
+          <strong id="weeklyGoal">0/5</strong>
+        </article>
+      </section>
+
+      <section class="panel slide-up">
+        <div class="section-head">
+          <div>
+            <h2>Progresso</h2>
+            <p>Acompanhe sua evolução em tempo real.</p>
+          </div>
+          <strong id="progressText">0%</strong>
+        </div>
+        <div class="progress-bar" aria-label="Barra de progresso">
+          <div id="progressFill" class="progress-bar__fill"></div>
+        </div>
+      </section>
+
+      <section class="panel recommendation slide-up">
+        <div class="section-head">
+          <div>
+            <h2>Recomendação inteligente</h2>
+            <p>O sistema identifica a tarefa mais urgente para você começar agora.</p>
+          </div>
+        </div>
+        <p id="smartRecommendation" class="recommendation__text">
+          Faça primeiro: nenhuma tarefa cadastrada.
+        </p>
+      </section>
+
+      <section class="panel slide-up">
+        <div class="section-head section-head--stack">
+          <div>
+            <h2>Lista de tarefas</h2>
+            <p>Gerencie suas atividades escolares com filtros rápidos.</p>
+          </div>
+          <div class="filters" role="tablist" aria-label="Filtros de tarefas">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="pending">Pendentes</button>
+            <button class="filter-btn" data-filter="completed">Concluídas</button>
+          </div>
+        </div>
+
+        <div id="taskList" class="task-list" aria-live="polite"></div>
+        <p id="emptyState" class="empty-state">Nenhuma tarefa cadastrada ainda.</p>
+      </section>
+    </main>
+
+    <footer class="footer slide-up">
+      <div class="container">
+        <p>StudyFlow – Organizador de Estudos Inteligente</p>
+        <p>Projeto frontend em HTML, CSS e JavaScript puro.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
